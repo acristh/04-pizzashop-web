@@ -11,11 +11,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { MetricCardSkeleton } from './metric-card-skeleton'
 
 export function DayOrdersAmountCard(/* props: MonthRevenueCardProps */) {
-  const { data: dayOrdersAmount, isFetched: isLoadingDayOrdersAmount } =
-    useQuery({
-      queryFn: getDayOrdersAmount,
-      queryKey: ['metrics', 'day-orders-amount'],
-    })
+  const { data: dayOrdersAmount } = useQuery({
+    queryFn: getDayOrdersAmount,
+    queryKey: ['metrics', 'day-orders-amount'],
+  })
 
   return (
     <Card>
