@@ -9,7 +9,9 @@ test('sign up successfully', async ({ page }) => {
   await page.getByLabel('Seu celular').fill('123487592556')
   await page.getByRole('button', { name: 'Finalizar cadastro' }).click()
 
-  expect(page.getByText('Restaurante cadastrado com sucesso!')).toBeVisible()
+  const toast = page.getByText('Restaurante cadastrado com sucesso!')
+
+  expect(toast).toBeVisible()
 
   await page.waitForTimeout(2000)
 })
@@ -23,7 +25,9 @@ test('sign up with error', async ({ page }) => {
   await page.getByLabel('Seu celular').fill('123487592556')
   await page.getByRole('button', { name: 'Finalizar cadastro' }).click()
 
-  expect(page.getByText('Erro ao cadastrar restaurante.')).toBeVisible()
+  const toast = page.getByText('Erro ao cadastrar restaurante.')
+
+  expect(toast).toBeVisible()
 
   await page.waitForTimeout(2000)
 })
